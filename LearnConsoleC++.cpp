@@ -2,6 +2,11 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <windows.h>
+#include <cstdio>
+#pragma comment(lib, "Urlmon.lib")
+
+using namespace std;
 
 int help()
 {
@@ -11,6 +16,40 @@ int help()
     std::cout << "Twitch bot (Twitch)\n";
     abort();
     return true;
+};
+
+int downloadFile(string downloadType)
+{
+    //std::string
+    // the URL to download from 
+    if (downloadType == "Discord") {
+        const wchar_t* srcURL = L"https://github.com/UFO-Studios/AlienBot-Discord/archive/refs/heads/main.zip";
+    }
+    else if (downloadType == "Youtube") {
+        const wchar_t* srcURL = L"https://github.com/UFO-Studios/AlienBot-Youtube/archive/refs/heads/main.zip";
+    };
+    // the destination file 
+    const wchar_t* destFile = L"alienbot.zip";
+
+    // URLDownloadToFile returns S_OK on success 
+    if (S_OK == URLDownloadToFile(NULL, srcURL, destFile, 0, NULL))
+    {
+
+        printf("Saved to 'myfile.txt'");
+
+        return 0;
+
+    }
+
+    else
+    {
+
+        printf("Failed");
+
+        return -1;
+
+    }
+
 };
 
 int main()
@@ -26,14 +65,14 @@ int main()
         help();
         //exit;
     }
-    std::cout << "Where do you want to install it to? Please use full drive paths (E.g: C:/users/your_user/example_folder)";
+    std::cout << "Where do you want to install it to? Please use full drive paths (E.g: C:/users/your_user/example_folder)\n";
     std::string installDIR;
     std::cin >> installDIR;
     {
         if (operation == "Discord")
         {
             std::cout << "Downloading to " + installDIR;
-            //need a function to download files here, using curl probably
+            downloadFile("Discord");
         }
     };
 }
