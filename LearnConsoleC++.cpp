@@ -1,6 +1,7 @@
 // LearnConsoleC++.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 #include <iostream>
+#include <stdlib.h>
 
 int help()
 {
@@ -8,6 +9,7 @@ int help()
     std::cout << "Discord bot (Discord)\n";
     std::cout << "Youtube bot (Youtube)\n";
     std::cout << "Twitch bot (Twitch)\n";
+    abort();
     return true;
 };
 
@@ -22,12 +24,16 @@ int main()
     if (operation == "help")
     {
         help();
+        //exit;
     }
-    else
+    std::cout << "Where do you want to install it to? Please use full drive paths (E.g: C:/users/your_user/example_folder)";
+    std::string installDIR;
+    std::cin >> installDIR;
     {
         if (operation == "Discord")
         {
-
+            std::cout << "Downloading to " + installDIR;
+            //need a function to download files here, using curl probably
         }
     };
 }
