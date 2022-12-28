@@ -20,11 +20,28 @@ int help()
 
 int downloadFile(string downloadType, string installDIR)
 {
+    if (downloadType == "discord") {
         std::string git = "git clone https://github.com/UFO-Studios/Alienbot-Discord.git ";
         const char * cGit = git.c_str();
         const char * GString = cGit;
         system(GString);
         return true;
+    } else if (downloadType == "youtube") {
+        std::string git = "git clone https://github.com/UFO-Studios/Alienbot-youtube.git";
+        const char * cGit = git.c_str();
+        const char * GString = cGit;
+        system(GString);
+        return true;
+    } else if (downloadType == "twitch") {
+        std::string git = "git clone https://github.com/UFO-Studios/Alienbot-Twitch.git";
+        const char * cGit = git.c_str();
+        const char * GString = cGit;
+        system(GString);
+        return true;
+    } else {
+        std::cout << "Error: Invalid download type";
+        abort();
+    };
 
 };
 
