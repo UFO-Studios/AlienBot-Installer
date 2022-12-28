@@ -1,5 +1,4 @@
-// LearnConsoleC++.cpp : This file contains the 'main' function. Program execution begins and ends there.
-
+//Created by @NiceygyLive && @MDxWAARRIORxOP
 #include <iostream>
 #include <stdlib.h>
 #include <windows.h>
@@ -14,41 +13,16 @@ int help()
     std::cout << "Discord bot (Discord)\n";
     std::cout << "Youtube bot (Youtube)\n";
     std::cout << "Twitch bot (Twitch)\n";
-    abort();
+    abort(); //need a better one than abort(), exit() doesnt work
     return true;
 };
 
-int downloadFile(string downloadType)
+int downloadFile(string downloadType, string installDIR)
 {
-    //std::string
-    // the URL to download from 
-    if (downloadType == "Discord") {
-        const wchar_t* srcURL = L"https://github.com/UFO-Studios/AlienBot-Discord/archive/refs/heads/main.zip";
-    }
-    else if (downloadType == "Youtube") {
-        const wchar_t* srcURL = L"https://github.com/UFO-Studios/AlienBot-Youtube/archive/refs/heads/main.zip";
-    };
-    // the destination file 
-    const wchar_t* destFile = L"alienbot.zip";
-
-    // URLDownloadToFile returns S_OK on success 
-    if (S_OK == URLDownloadToFile(NULL, srcURL, destFile, 0, NULL))
-    {
-
-        printf("Saved to 'myfile.txt'");
-
-        return 0;
-
-    }
-
-    else
-    {
-
-        printf("Failed");
-
-        return -1;
-
-    }
+        std::string git = "git clone";
+        const char * cGit = git.c_str();
+        const char *GString = cGit + downloadType + installDIR;
+        system(GString);
 
 };
 
@@ -66,13 +40,13 @@ int main()
         //exit;
     }
     std::cout << "Where do you want to install it to? Please use full drive paths (E.g: C:/users/your_user/example_folder)\n";
-    std::string installDIR;
-    std::cin >> installDIR;
+    std::string installDIRusr;
+    std::cin >> installDIRusr;
     {
         if (operation == "Discord")
         {
-            std::cout << "Downloading to " + installDIR;
-            downloadFile("Discord");
+            std::cout << "Downloading to " + installDIRusr;
+            downloadFile("Discord", installDIRusr);
         }
     };
 }

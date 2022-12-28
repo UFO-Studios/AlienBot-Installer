@@ -32,3 +32,6 @@
 *.app
 /.vs/LearnConsoleC++
 /x64/Debug
+
+#VSC
+.vscode

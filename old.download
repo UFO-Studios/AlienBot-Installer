@@ -1,0 +1,28 @@
+    // the URL to download from 
+    if (downloadType == "Discord") {
+        const wchar_t* srcURL = L"https://github.com/UFO-Studios/AlienBot-Discord/archive/refs/heads/main.zip";
+    }
+    else if (downloadType == "Youtube") {
+        const wchar_t* srcURL = L"https://github.com/UFO-Studios/AlienBot-Youtube/archive/refs/heads/main.zip";
+    };
+    // the destination file 
+    const wchar_t* destFile = L"alienbot.zip";
+
+    // URLDownloadToFile returns S_OK on success 
+    if (S_OK == URLDownloadToFile(NULL, srcURL, destFile, 0, NULL)) //for some reason, this is not working (it cant find srcUrl) huh mmm... huh
+    {
+
+        printf("Saved to 'myfile.txt'");
+
+        return 0;
+
+    }
+
+    else
+    {
+
+        printf("Failed");
+
+        return -1;
+
+    }
