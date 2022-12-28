@@ -20,10 +20,12 @@ int help()
 
 int downloadFile(string downloadType, string installDIR)
 {
-        std::string git = "git clone";
+        std::string git = "git clone https://github.com/UFO-Studios/Alienbot-Discord.git D:/TAD/Alienbot-Installer/git-test";
         const char * cGit = git.c_str();
-        //const char *GString = cGit + downloadType + installDIR;
-        //system(GString);
+        const char * cDIR = installDIR.c_str();
+        const char * cType = downloadType.c_str();
+        const char * GString = cGit; // + cType + cDIR;
+        system(GString);
         return true;
 
 };
