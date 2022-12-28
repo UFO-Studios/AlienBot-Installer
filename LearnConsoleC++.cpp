@@ -61,7 +61,7 @@ int main()
         if (operation == "Discord")
         {
             std::cout << "Downloading to " + installDIRusr;
-            downloadFile("Discord", installDIRusr);
+            downloadFile("discord", installDIRusr);
         }
     };
 }
