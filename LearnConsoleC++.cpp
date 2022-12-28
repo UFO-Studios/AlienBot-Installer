@@ -20,11 +20,9 @@ int help()
 
 int downloadFile(string downloadType, string installDIR)
 {
-        std::string git = "git clone https://github.com/UFO-Studios/Alienbot-Discord.git D:/TAD/Alienbot-Installer/git-test";
+        std::string git = "git clone https://github.com/UFO-Studios/Alienbot-Discord.git ";
         const char * cGit = git.c_str();
-        const char * cDIR = installDIR.c_str();
-        const char * cType = downloadType.c_str();
-        const char * GString = cGit; // + cType + cDIR;
+        const char * GString = cGit;
         system(GString);
         return true;
 
@@ -44,7 +42,9 @@ int main()
 {
     std::cout << "Loading system... Please stand by\n";
     //Any future loading things go here
-    std::cout << "Loaded! What would you like to install? Type `help` to see all options & type `credits` to see credits\n";
+    std::cout << "Loaded! What would you like to install?\n";
+    std::cout << "Type `help` to see all options & type `credits` to see credits\n";
+    std::cout << "Make sure this installer is in the folder you want to install to!\n";
     std::string operation;
     std::cin >> operation;
     //FOR DEBUG std::cout << "You asked for " + operation;
