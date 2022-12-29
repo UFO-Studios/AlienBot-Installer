@@ -14,7 +14,6 @@ int help()
     std::cout << "Youtube bot (Youtube)\n";
     std::cout << "Twitch bot (Twitch)\n";
     std::cout << "You need git to run this installer!\n";
-    abort(); //need a better one than abort(), exit() doesnt work
     return true;
 };
 
@@ -46,31 +45,29 @@ int downloadFile(string downloadType)
         return true;
     } else {
         std::cout << "Error: Invalid download type";
-        abort();
     };
 
 };
 
-int installNodeModules(string packageManager)
+int installNodeModules(string packageManager, string botType)
 {
     if (packageManager == "npm"){
-    std::string npm = "npm install";
+    std::string npm = "cd Alienbot-" + botType + " && npm install";
     const char * cNpm = npm.c_str();
     const char * NpmString = cNpm;
     system(NpmString);
     } else if (packageManager == "yarn"){
-    std::string npm = "yarn install";
+    std::string npm = "cd Alienbot- " + botType + " && yarn install";
     const char * cNpm = npm.c_str();
     const char * NpmString = cNpm;
     system(NpmString);
     } else if (packageManager == "pnpm"){
-    std::string npm = "pnpm install";
+    std::string npm = "cd Alienbot-" + botType + " && pnpm install";
     const char * cNpm = npm.c_str();
     const char * NpmString = cNpm;
     system(NpmString);
     } else {
         std::cout << "Error: Invalid package manager";
-        abort();
     }
     return true;
 };
@@ -87,7 +84,6 @@ int credits ()
     std::cout << "MDxWAARRIORxOP: @MDxWARRIORxOP or Kingerious (most platforms)\n";
     std::cout << "Copyright UFO Studios 2022. To see more refer to LICENCE in the github repo\n";
     std::cout << "Report any errors or issues to the repo. Thanks for using this software!\n";
-    //exit();
     return true;
 }
 
@@ -117,25 +113,25 @@ int main()
     //std::string installDIRusr;
     //std::cin >> installDIRusr;
     {
-        if (operation == "Discord")
+        if (operation == "discord")
         {
             std::cout << "Downloading...";
             downloadFile("discord");
             std::cout << "Downloaded! Installing node modules...";
-            installNodeModules(packageManager);
+            installNodeModules(packageManager, "Discord");
         } else if (operation == "twitch")
         {
             downloadFile("twitch");
             std::cout << "Downloaded! Installing node modules...";
-            installNodeModules(packageManager);
+            installNodeModules(packageManager, "Twitch");
         } else if (operation == "youtube")
         {
             downloadFile("youtube");
             std::cout << "Downloaded! Installing node modules...";
-            installNodeModules(packageManager);
+            installNodeModules(packageManager, "Youtube");
         } else {
             std::cout << "Error: Invalid download type";
-            abort();
+            //abort();
         };
         downloadComplete();
         };
