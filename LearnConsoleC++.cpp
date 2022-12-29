@@ -18,7 +18,7 @@ int help()
     return true;
 };
 
-int downloadFile(string downloadType, string installDIR)
+int downloadFile(string downloadType)
 {
     if (downloadType == "discord") {
         std::string git = "git clone https://github.com/UFO-Studios/Alienbot-Discord.git ";
@@ -73,15 +73,24 @@ int main()
     {
         credits();
     }
-    std::cout << "Where do you want to install it to? Please use full drive paths (E.g: C:/users/your_user/example_folder)\n";
-    std::string installDIRusr;
-    std::cin >> installDIRusr;
+    std::cout << "Unfortunatly you cannot select the install location in this version, please make sure the installer is in a empty directory!\n";
+    //std::string installDIRusr;
+    //std::cin >> installDIRusr;
     {
         if (operation == "Discord")
         {
-            std::cout << "Downloading to " + installDIRusr;
-            downloadFile("discord", installDIRusr);
-        }
+            std::cout << "Downloading...";
+            downloadFile("discord");
+        } else if (operation == "twitch")
+        {
+            downloadFile("twitch");
+        } else if (operation == "youtube")
+        {
+            downloadFile("youtube");
+        } else {
+            std::cout << "Error: Invalid download type";
+            abort();
+        };
     };
 }
 
