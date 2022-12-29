@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{4d78ede8-7436-40bd-84be-798cc32e179a}</ProjectGuid>
-    <RootNamespace>LearnConsoleC</RootNamespace>
+    <RootNamespace>AlienBot-installer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
