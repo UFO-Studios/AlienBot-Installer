@@ -18,6 +18,12 @@ int help()
     return true;
 };
 
+int downloadComplete()
+{
+    std::cout << "Downloaded and installed! I have also installed the node modules for you. Rename `Config-template.json` to `config.json`, fill out the values and run `npm run start`! \n You can now close this installer.\n";
+    return true;
+};
+
 int downloadFile(string downloadType)
 {
     if (downloadType == "discord") {
@@ -45,14 +51,44 @@ int downloadFile(string downloadType)
 
 };
 
+int installNodeModules(string packageManager)
+{
+    if (packageManager == "npm"){
+    std::string npm = "npm install";
+    const char * cNpm = npm.c_str();
+    const char * NpmString = cNpm;
+    system(NpmString);
+    } else if (packageManager == "yarn"){
+    std::string npm = "yarn install";
+    const char * cNpm = npm.c_str();
+    const char * NpmString = cNpm;
+    system(NpmString);
+    } else if (packageManager == "pnpm"){
+    std::string npm = "pnpm install";
+    const char * cNpm = npm.c_str();
+    const char * NpmString = cNpm;
+    system(NpmString);
+    } else {
+        std::cout << "Error: Invalid package manager";
+        abort();
+    }
+    return true;
+};
+
 int credits ()
 {
+    std::cout << "    _    _     ___ _____ _   _ ____   ___ _____ \n";
+    std::cout << "   / \  | |   |_ _| ____| \ | | __ ) / _ \_   _|\n";
+    std::cout << "  / _ \ | |    | ||  _| |  \| |  _ \| | | || | \n";
+    std::cout << " / ___ \| |___ | || |___| |\  | |_) | |_| || | \n";
+    std::cout << "/_/   \_\_____|___|_____|_| \_|____/ \___/ |_|  \n";
     std::cout << "Made by NiceygyLive and MDxWAARRIORxOP\n";
     std::cout << "Niceygy: @NiceygyLive (most platforms)\n";
     std::cout << "MDxWAARRIORxOP: @MDxWARRIORxOP or Kingerious (most platforms)\n";
     std::cout << "Copyright UFO Studios 2022. To see more refer to LICENCE in the github repo\n";
     std::cout << "Report any errors or issues to the repo. Thanks for using this software!\n";
-    abort();
+    //exit();
+    return true;
 }
 
 int main()
@@ -64,6 +100,7 @@ int main()
     std::cout << "Make sure this installer is in the folder you want to install to!\n";
     std::string operation;
     std::cin >> operation;
+
     //FOR DEBUG std::cout << "You asked for " + operation;
     if (operation == "help")
     {
@@ -72,7 +109,10 @@ int main()
     if (operation == "credits")
     {
         credits();
-    }
+    } else {
+    std::cout << "Please select your package manager for nodeJS (If you dont know what this is, type `npm`)\n Possible options:\n npm\n yarn\n pnpm\n";
+    std::string packageManager;
+    std::cin >> packageManager;
     std::cout << "Unfortunatly you cannot select the install location in this version, please make sure the installer is in a empty directory!\n";
     //std::string installDIRusr;
     //std::cin >> installDIRusr;
@@ -81,15 +121,23 @@ int main()
         {
             std::cout << "Downloading...";
             downloadFile("discord");
+            std::cout << "Downloaded! Installing node modules...";
+            installNodeModules(packageManager);
         } else if (operation == "twitch")
         {
             downloadFile("twitch");
+            std::cout << "Downloaded! Installing node modules...";
+            installNodeModules(packageManager);
         } else if (operation == "youtube")
         {
             downloadFile("youtube");
+            std::cout << "Downloaded! Installing node modules...";
+            installNodeModules(packageManager);
         } else {
             std::cout << "Error: Invalid download type";
             abort();
+        };
+        downloadComplete();
         };
     };
 }
