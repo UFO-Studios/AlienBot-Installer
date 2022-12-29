@@ -74,11 +74,11 @@ int installNodeModules(string packageManager, string botType)
 
 int credits ()
 {
-    std::cout << "    _    _     ___ _____ _   _ ____   ___ _____ \n";
-    std::cout << "   / \  | |   |_ _| ____| \ | | __ ) / _ \_   _|\n";
-    std::cout << "  / _ \ | |    | ||  _| |  \| |  _ \| | | || | \n";
-    std::cout << " / ___ \| |___ | || |___| |\  | |_) | |_| || | \n";
-    std::cout << "/_/   \_\_____|___|_____|_| \_|____/ \___/ |_|  \n";
+    std::cout << " AA  L    III EEEE N   N BBBB   OOO  TTTTTT  \n";
+    std::cout << "A  A L     I  E    NN  N B   B O   O   TT   \n";
+    std::cout << "AAAA L     I  EEE  N N N BBBB  O   O   TT   \n";
+    std::cout << "A  A L     I  E    N  NN B   B O   O   TT   \n";
+    std::cout << "A  A LLLL III EEEE N   N BBBB   OOO    TT   \n";
     std::cout << "Made by NiceygyLive and MDxWAARRIORxOP\n";
     std::cout << "Niceygy: @NiceygyLive (most platforms)\n";
     std::cout << "MDxWAARRIORxOP: @MDxWARRIORxOP or Kingerious (most platforms)\n";
