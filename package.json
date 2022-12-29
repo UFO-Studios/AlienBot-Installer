@@ -1,0 +1,17 @@
+{
+  "name": "AlienBot-Installer-Gui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/UFO-Studios/AlienBot-Installer-Gui.git",
+  "author": "MDxWARRIORxOP <mohammedsiddiqui2009@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^22.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "2"
+  }
+}

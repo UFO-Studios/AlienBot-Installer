@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <title>AlienBot Installer</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+    <div class="center">
+        <h1 class="block">Hello There!</h1>
+        <p class="exsm" id="show">
+        <p>
+    </div>
+
+    <div class="left">
+        <h2 class="block">Welcome to AlienBot Installer.</h2>
+        <p class="block">
+            This app will help you setup AlienBot on your machine.
+        </p>
+    </div>
+
+    <form id="appsForm" class="right">
+        <center>
+            <label for="apps">Select an app to install: </label>
+            <select name="apps" id="apps" form="appsForm">
+                <option value="Discord">
+                    <p>AlienBot Discord</p>
+                </option>
+                <option value="Twitch">
+                    <p>AlienBot Twitch</p>
+                </option>
+                <option value="Youtube">
+                    <p>AlienBot Youtube</p>
+                </option>
+            </select>
+        </center>
+        <br>
+        <br>
+        <center>
+            <button class="block bn47" type="submit">
+                Install <i class="fa-solid fa-angles-right"></i>
+            </button>
+        </center>
+    </form>
+
+    <div class="hidden">
+        <iframe id="download"></iframe>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/1519e29e51.js" crossorigin="anonymous"></script>
+<script src="./preload.js"></script>
+
+</html>
